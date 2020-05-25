@@ -16,5 +16,6 @@ cd "/var/lib/jenkins/workspace/maven_gmall/target"
 nohup java -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8060 -Djava.rmi.server.hostname=111.231.59.249 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -jar gmall*jar >> gmall.log 2>&1 &
 sleep 5
 
+
 new_pid=$(ps -ef|grep "java -jar gmall"|grep -v "grep"| awk '{print $2}')
 [[ -n "$new_pid" ]] && { echo "new gmall[$new_pid] restarted."; exit 0; }
