@@ -13,7 +13,7 @@ cd "/var/lib/jenkins/workspace/maven_gmall/target"
 [[ -f "gmall.log" ]] || { echo "no gmall.log file, to be created."; touch gmall.log; }
 
 # nohup java -jar gmall*jar >> gmall.log 2>&1 &
-nohup java -jar -Dcom.sun.management.jmxremote.port=8060 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false gmall*jar >> gmall.log 2>&1 &
+nohup java -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8060 -Djava.rmi.server.hostname=111.231.59.249 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -jar gmall*jar >> gmall.log 2>&1 &
 sleep 5
 
 new_pid=$(ps -ef|grep "java -jar gmall"|grep -v "grep"| awk '{print $2}')
