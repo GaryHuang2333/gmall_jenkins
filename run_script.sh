@@ -19,3 +19,5 @@ sleep 5
 
 new_pid=$(ps -ef|grep "java -jar gmall"|grep -v "grep"| awk '{print $2}')
 [[ -n "$new_pid" ]] && { echo "new gmall[$new_pid] restarted."; exit 0; }
+
+
