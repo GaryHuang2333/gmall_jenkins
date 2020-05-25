@@ -9,6 +9,8 @@ else
     echo "no old gmall is running"
 fi
 
+sleep 1
+
 cd "/var/lib/jenkins/workspace/maven_gmall/target"
 [[ -f "gmall.log" ]] || { echo "no gmall.log file, to be created."; touch gmall.log; }
 
