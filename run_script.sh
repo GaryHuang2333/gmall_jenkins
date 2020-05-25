@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Post steps"
 
-old_pid=$(ps -ef|grep "java -jar gmall"|grep -v "grep"| awk '{print $2}')
+old_pid=$(ps -ef|grep "java.*jar.*gmall"|grep -v "grep"| awk '{print $2}')
 if [ -n "$old_pid" ]; then
     kill "$old_pid" &> /dev/null
     echo "kill old gmall[$old_pid]"
